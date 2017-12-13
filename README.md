@@ -20,3 +20,9 @@ used to be:
     new_val = eval("#{first_val.to_f} #{last_arg} #{second_val.to_f}")
 
 which is how I learned RPN, that the last value off the stack substracts (or adds, or whatever) the second to last from itself; you have it explicitly reversed in your last test case, so I assume that I am wrong about that, but it's easy enough to switch if I am right.
+
+#final notes
+
+I still need to tie down the numerical types; it is sort of easy to get a bit of floating point detritus once you start using the divison operator;
+
+and, of course, I need to implement brackets, which I would like to do using recursion.
