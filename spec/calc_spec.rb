@@ -26,5 +26,19 @@ RSpec.describe Calc, "#inputs" do
       calc = Calc.new
       expect(calc.take("3 +")).to eq("ERROR")
     end
+    
+    it "responds correctly to posted tests case 1" do
+      calc = Calc.new
+      expect(calc.take("5")).to eq(5)
+      expect(calc.take("8")).to eq(8)
+      expect(calc.take("+")).to eq(13)
+    end
+    
+    it "responds correctly to posted tests case 2" do
+      calc = Calc.new
+      expect(calc.take("5 8 +")).to eq(13.0)
+      expect(calc.take("13 -")).to eq(0)
+    end
+   
   end
 end

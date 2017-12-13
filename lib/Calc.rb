@@ -1,28 +1,31 @@
 class Calc
   
   OPERATORS = ["+", "-", "/", "*"]
+  @all_args = []
   
   def take(args)
-    all_args = []
+    
     my_args = args.split(" ")
     last_arg = ""
     my_args.each do |a|
       #puts "process #{a}"
       last_arg = a
-      all_args.push last_arg
+      add_arg(last_arg)
     end
     if OPERATORS.include?(last_arg)
       #operate
       #check for num of args
-      if all_args.size<3
-        all_args.pop
+      if @all_args.size<3
+        puts "process operator"
+        puts @all_args.inspect
+        remove_arg
         return "ERROR"
       else
-        all_args.pop
-        first_val = all_args.pop
-        second_val = all_args.pop
+        remove_arg
+        first_val = remove_arg
+        second_val = remove_arg
         new_val = eval("#{first_val} #{last_arg} #{second_val}")
-        all_args << new_val
+        add_arg(new_val)
         return new_val
       end
       
@@ -30,6 +33,16 @@ class Calc
       return last_arg.to_i
     end
     
+  end
+  
+  def add_arg(added)
+    @all_args = @all_args ? @all_args : []
+    @all_args<<added
+  end
+  
+  def remove_arg
+    @all_args = @all_args ? @all_args : []
+    return @all_args.pop
   end
   
 end
