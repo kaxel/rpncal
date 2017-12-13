@@ -1,7 +1,7 @@
 class Calc
   
   OPERATORS = ["+", "-", "/", "*"]
-  @all_args = []
+  CUSTOM_OPERATORS = []
   
   def take(args)
     
@@ -16,24 +16,25 @@ class Calc
       #operate
       #check for num of args
       if @all_args.size<3
-        puts "process operator"
-        puts @all_args.inspect
         remove_arg
         return "ERROR"
       else
         remove_arg
         first_val = remove_arg
         second_val = remove_arg
-        new_val = eval("#{first_val} #{last_arg} #{second_val}")
+        new_val = eval("#{second_val.to_f} #{last_arg} #{first_val.to_f}")
         add_arg(new_val)
         return new_val
       end
-      
+    elsif CUSTOM_OPERATORS.include?(last_arg)
+      #handle custom operators
     else
       return last_arg.to_i
     end
     
   end
+  
+  private
   
   def add_arg(added)
     @all_args = @all_args ? @all_args : []
