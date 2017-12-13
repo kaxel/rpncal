@@ -25,8 +25,7 @@ class Calc
         second_val = remove_arg
         new_val = eval("#{second_val.to_f} #{last_arg} #{first_val.to_f}")
         add_arg(new_val)
-        #test for need to format
-        return new_val.to_f.round(4)
+        return new_val
       end
     elsif CUSTOM_OPERATORS.include?(last_arg)
       #handle custom operators
