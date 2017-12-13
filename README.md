@@ -21,7 +21,7 @@ used to be:
 
 which is how I learned RPN, that the last value off the stack substracts (or adds, or whatever) the second to last from itself; you have it explicitly reversed in your last test case, so I assume that I am wrong about that, but it's easy enough to switch if I am right.
 
-#final notes
+# final notes
 
 I still need to tie down the numerical types; it is sort of easy to get a bit of floating point detritus once you start using the divison operator;
 
