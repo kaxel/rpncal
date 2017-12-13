@@ -3,6 +3,13 @@ class Calc
   OPERATORS = ["+", "-", "/", "*"]
   CUSTOM_OPERATORS = []
   
+  class Error < RuntimeError
+  end
+
+  class MissingValuesError < Error
+  end
+  
+  
   def take(args)
     
     my_args = args.split(" ")
@@ -15,7 +22,7 @@ class Calc
       #check for num of args
       if @all_args.size<3
         remove_arg
-        return "ERROR"
+        raise MissingValuesError
       else
         remove_arg
         first_val = remove_arg
