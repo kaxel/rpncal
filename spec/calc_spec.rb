@@ -22,11 +22,6 @@ RSpec.describe Calc, "#inputs" do
       expect(calc.take("9 4 66 13 -")).to eq(53)
     end
     
-    it "errors when operator cannot find enough inputs" do
-      calc = Calc.new
-      expect(calc.take("3 +")).to eq("ERROR")
-    end
-    
     it "responds correctly to posted test case 1" do
       calc = Calc.new
       expect(calc.take("5")).to eq(5)
@@ -56,6 +51,11 @@ RSpec.describe Calc, "#inputs" do
       expect(calc.take("1")).to eq(1)
       expect(calc.take("-")).to eq(8)
       expect(calc.take("/")).to eq(0.625)
+    end
+    
+    it "errors when operator cannot find enough inputs" do
+      calc = Calc.new
+      expect { calc.take("3 +") }.to raise_error(Calc::MissingValuesError)
     end
    
   end

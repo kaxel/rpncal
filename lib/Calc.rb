@@ -3,12 +3,8 @@ class Calc
   OPERATORS = ["+", "-", "/", "*"]
   CUSTOM_OPERATORS = []
   
-  class Error < RuntimeError
+  class MissingValuesError < StandardError
   end
-
-  class MissingValuesError < Error
-  end
-  
   
   def take(args)
     
@@ -22,7 +18,7 @@ class Calc
       #check for num of args
       if @all_args.size<3
         remove_arg
-        raise MissingValuesError
+        raise MissingValuesError, "not enough input values to support operation."
       else
         remove_arg
         first_val = remove_arg
