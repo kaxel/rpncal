@@ -7,7 +7,7 @@ puts "enter your values after the prompt."
 puts "press q to exit."
 @calc = Calc.new
 while a = gets
-  if a.delete("\n").upcase=="Q"
+  if a.delete("\n").upcase=="Q" || a=="\n"
     puts "exiting"
     exit
   else
