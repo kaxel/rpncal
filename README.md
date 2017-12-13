@@ -23,6 +23,8 @@ which is how I learned RPN, that the last value off the stack substracts (or add
 
 # final notes
 
-I still need to tie down the numerical types; it is sort of easy to get a bit of floating point detritus once you start using the divison operator;
+Errors are now handled correctly.
 
-and, of course, I need to implement brackets, which I would like to do using recursion.
+Return number values are now properly formatted.
+
+Next: to implement brackets, which I would like to do using recursion.
