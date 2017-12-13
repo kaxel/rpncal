@@ -8,12 +8,10 @@ class Calc
     my_args = args.split(" ")
     last_arg = ""
     my_args.each do |a|
-      #puts "process #{a}"
       last_arg = a
       add_arg(last_arg)
     end
     if OPERATORS.include?(last_arg)
-      #operate
       #check for num of args
       if @all_args.size<3
         remove_arg
