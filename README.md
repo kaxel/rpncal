@@ -13,14 +13,10 @@ I kept the implemention very simple, non-operators just get pushed to the stack,
 
 One issue I ran into is with this code (Calc.rb line 23):
 
-'''
-new_val = eval("#{second_val.to_f} #{last_arg} #{first_val.to_f}")
-'''
+    new_val = eval("#{second_val.to_f} #{last_arg} #{first_val.to_f}")
 
 used to be:
 
-'''
-new_val = eval("#{first_val.to_f} #{last_arg} #{second_val.to_f}")
-'''
+    new_val = eval("#{first_val.to_f} #{last_arg} #{second_val.to_f}")
 
 which is how I learned RPN, that the last value off the stack substracts (or adds, or whatever) the second to last from itself; you have it explicitly reversed in your last test case, so I assume that I am wrong about that, but it's easy enough to switch if I am right.
